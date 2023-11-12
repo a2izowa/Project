@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="font-size: 20px; margin: 20px 5px">Автомобили таксопарка</div>
+    <table style="border: 1px solid grey; border-collapse: collapse; text-align: center">
+        <thead>
+            <tr>
+                <th style="border: 1px solid grey; padding: 15px 15px">Марка</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Класс</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Номер</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Цвет</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Дата производства</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in var_2 %}
+                <tr>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ car.mark }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ car.class_of_car }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ car.number }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ car.colour }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{car.date_of_production}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

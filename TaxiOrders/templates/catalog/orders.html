@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="font-size: 20px; margin: 20px 5px">Заказы таксопарка</div>
+    <table style="border: 1px solid grey; border-collapse: collapse; text-align: center">
+        <thead>
+            <tr>
+                <th style="border: 1px solid grey; padding: 15px 15px">Дата</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Адрес подачи</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Адрес следования</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Количество пассажиров</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Длина маршрута</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Водитель</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in var %}
+                <tr>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ order.date }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ order.address_from }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ order.address_to }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{ order.number_of_passengers }}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{order.length}}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px"> {{order.drivers}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
