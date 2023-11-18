@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # автомобили
 class Cars(models.Model):
     mark = models.CharField(max_length=20,
@@ -45,11 +46,13 @@ class Drivers(models.Model):
                               help_text="Введите ИНН",
                               verbose_name="ИНН")
     passport = models.CharField(max_length=11,
-                           help_text="Введите номер и серию паспорта",
-                           verbose_name="Паспорт")
+                                help_text="Введите номер и серию паспорта",
+                                verbose_name="Паспорт")
     cars = models.ForeignKey('Cars',
                              on_delete=models.CASCADE,
                              verbose_name="Автомобили", null=True)
+    order_dates = models.CharField(max_length=100, verbose_name="Заказы", default='')
+
     class Meta:
         ordering = ["last_name"]
 
@@ -58,9 +61,11 @@ class Drivers(models.Model):
 
     def get_absolute_url(self):
         return reverse('drivers-detail', args=[str(self.id)])
+
     def display_cars(self):
         return ', '.join([cars.mark for cars in
-                         self.cars.all()])
+                          self.cars.all()])
+
     display_cars.short_description = 'Машины'
 
 
@@ -79,11 +84,12 @@ class Orders(models.Model):
                                  help_text="Введите длину маршрута в километрах",
                                  verbose_name="Длина маршрута")
     drivers = models.ForeignKey('Drivers', null=True,
-                             on_delete=models.CASCADE,
-                             verbose_name="Водитель")
+                                on_delete=models.CASCADE,
+                                verbose_name="Водитель", related_name="orders")
 
     class Meta:
         ordering = ["date"]
+
     def __str__(self):
         return '%s %s %s' % (self.date, self.address_from, self.address_to)
 

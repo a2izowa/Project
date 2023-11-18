@@ -16,6 +16,7 @@
                 <th style="border: 1px solid grey; padding: 15px 15px">ИНН</th>
                 <th style="border: 1px solid grey; padding: 15px 15px">Паспортные данные</th>
                 <th style="border: 1px solid grey; padding: 15px 15px">Машина</th>
+                <th style="border: 1px solid grey; padding: 15px 15px">Заказы</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +29,10 @@
                     <td style="border: 1px solid grey; padding: 10px 10px">{{driver.INN}}</td>
                     <td style="border: 1px solid grey; padding: 10px 10px">{{driver.passport}}</td>
                     <td style="border: 1px solid grey; padding: 10px 10px">{{driver.cars}}</td>
+                    <td style="border: 1px solid grey; padding: 10px 10px">{{driver.order_dates}}</td>
                 </tr>
             {% endfor %}
+
         </tbody>
     </table>
 
